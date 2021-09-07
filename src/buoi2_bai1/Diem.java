@@ -5,18 +5,21 @@ import java.util.Scanner;
 public class Diem {
 	int x;
 	int y;
-	public Diem(){}
+	public Diem(){
+		this.x=0;
+		this.y=0;
+	}
 	
 	public Diem(int x, int y){
 		this.x = x;
 		this.y = y;
 	}
 	
-	public int getX() {
+	public int giaTriX() {
 		return x;
 	}
 	
-	public int getY() {
+	public int giaTriY() {
 		return y;
 	}
 	
@@ -42,7 +45,10 @@ public class Diem {
 		System.out.println("("+this.x+","+this.y+")");
 	}
 //======================================================================//
-	public void doiDiem(int dx, int dy) {}
+	public void doiDiem(int dx, int dy) {
+		this.x+=dx;
+		this.y+=dy;
+	}
 //======================================================================//
 	public float khoangCach() {
 		float k= (float) Math.sqrt(this.x*this.x+this.y*this.y);
