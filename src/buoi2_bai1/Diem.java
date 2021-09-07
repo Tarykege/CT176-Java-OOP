@@ -16,11 +16,11 @@ public class Diem {
 	}
 	
 	public int giaTriX() {
-		return x;
+		return this.x;
 	}
 	
 	public int giaTriY() {
-		return y;
+		return this.y;
 	}
 	
 	public void setX(int x) {
