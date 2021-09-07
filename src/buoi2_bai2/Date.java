@@ -80,14 +80,18 @@ public class Date {
 		Date tomorrow;
 		int d,m,y;
 		if(this.ngay==lastMonth(this.thang,this.nam)) {
-			d=1;
-			m=1;
-			y=this.nam;
-			if(this.thang>12) 
+			if(this.thang==12) {
+				d=1;
+				m=1;
 				y=this.nam+1;
-		}else {
+			} else {
+				d=1;
+				m=this.thang+1;
+				y=this.nam;
+			}
+		} else {
 			d=this.ngay+1;
-			m=this.thang+1;
+			m=this.thang;
 			y=this.nam;
 		}
 		tomorrow = new Date(d, m, y);
