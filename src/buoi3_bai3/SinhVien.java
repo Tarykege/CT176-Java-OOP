@@ -61,6 +61,12 @@ public class SinhVien {
 			string=null;
 		}
 	}
+	public String getHoTen() {
+		return hoTen;
+	}
+	public void setHoTen(String hoTen) {
+		this.hoTen = hoTen;
+	}
 	
 	public void nhapSV() {
 		Scanner scanner = new Scanner(System.in);
@@ -119,7 +125,7 @@ public class SinhVien {
 
 	@Override
 	public String toString() {
-		String s= "- "+this.mssv+"\n- "+this.hoTen+"\n- "+this.ngaySinh.Display()+"\n- "+"SLHP "+this.soHocPhan+"\n- "+"DsHocPhan{";
+		String s= "- "+this.mssv+"\n- "+this.hoTen+"\n- "+this.ngaySinh.toString()+"\n- "+"SLHP "+this.soHocPhan+"\n- "+"DsHocPhan{";
 		
 		for(int i=0; i<this.soHocPhan; i++) {
 			s+=" "+this.dsHocPhan[i]+": "+this.diemHocPhan[i]+" ";
