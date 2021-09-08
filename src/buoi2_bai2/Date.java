@@ -15,8 +15,8 @@ public class Date {
 		this.nam = nam;
 	}
 //======================================================================//
-	public void Display() {
-		System.out.printf("%02d/%02d/%04d",ngay,thang,nam);
+	public String Display() {
+		return this.ngay+"/"+this.thang+"/"+this.nam;
 	}
 //======================================================================//
 	public void input() {
@@ -115,6 +115,6 @@ public class Date {
 //======================================================================//
 	public static void main(String[] args) {
 		Date d = new Date(29, 2, 2000);
-		d.Display();
+		System.out.println(d.Display());
 	}	
 }
