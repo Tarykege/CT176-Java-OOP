@@ -45,6 +45,7 @@ public class SDSinhVien {
 		}
 		System.out.println(highestSv.toString());
 		
+		System.out.println("sap xep theo ten");
 		Collections.sort(dsSv);
 		for (SinhVien sinhVien : dsSv) {
 			System.out.println(sinhVien.toString());
