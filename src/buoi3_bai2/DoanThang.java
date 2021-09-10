@@ -123,8 +123,8 @@ public class DoanThang {
 	}
 //======================================================================//		
 	public static void main(String[] args) {
-//		Diem a= new Diem(5,-4);
-//		Diem b= new Diem(5,3);
+//		Diem a= new Diem(0,2);
+//		Diem b= new Diem(0,1);
 //		DoanThang d1 = new DoanThang(a,b);
 //		System.out.println(d1.tinhGocTrucHoanh());
 //		d1.hienThi();
