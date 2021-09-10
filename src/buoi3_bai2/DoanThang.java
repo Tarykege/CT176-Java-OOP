@@ -55,7 +55,15 @@ public class DoanThang {
 		return d1.khoangCach(d2);
 	}
 //======================================================================//
+	public boolean checkTrungDiem() {
+		if(this.d1.giaTriX()==this.d2.giaTriX() && this.d1.giaTriY()==this.d2.giaTriY() ) {
+			return true;
+		}
+		else return false;
+	}		
+//======================================================================//
 	public boolean checkDoiXung() {
+		if(checkTrungDiem()) return false; 
 		Diem absA = new Diem(Math.abs(this.d1.giaTriX()),Math.abs(this.d1.giaTriY()));
 		Diem absB = new Diem(Math.abs(this.d2.giaTriX()),Math.abs(this.d2.giaTriY()));
 		if(absA.giaTriX()==absB.giaTriX() && absA.giaTriY()==absB.giaTriY()) {
@@ -78,31 +86,22 @@ public class DoanThang {
 		}
 		else return false;
 	}
-//======================================================================//	
-	public boolean checkNamTrenTrucX() {
-		if(this.d1.giaTriX()*this.d2.giaTriX()<0 && (d1.giaTriY()==0 || d2.giaTriY()==0) ) {
-			return true;
-		}
-		else return false;
-	}
-//======================================================================//
-	public boolean checkNamTrenTrucY() {
-		if(this.d1.giaTriX()*this.d2.giaTriX()<=0 && (d1.giaTriX()==0 || d2.giaTriX()==0) ) {
-			return true;
-		}
-		else return false;
-	}
-//======================================================================//
-	public boolean checkTrungDiem() {
-		if(this.d1.giaTriX()==this.d2.giaTriX() && this.d1.giaTriY()==this.d2.giaTriY() ) {
-			return true;
-		}
-		else return false;
-	}
 //======================================================================//		
+	public boolean checkSongSongTrucY() {
+		if(checkDoiXung()) return false;
+		if(this.d1.giaTriX()==this.d2.giaTriX()) return true;
+		else return false;
+	}
+//======================================================================//	
+	public boolean checkSongSongTrucX() {
+		if(checkDoiXung()) return false;
+		if(this.d1.giaTriY()==this.d2.giaTriY()) return true;
+		else return false;
+	}
+//======================================================================//
 	public float tinhGocTrucHoanh() {
-		if(checkTrungDiem() || checkDoiXungTrucY() || checkNamTrenTrucY()) return 0;
-		if(checkDoiXungTrucX() || checkNamTrenTrucX()) return 90;
+		if(checkTrungDiem() || checkDoiXungTrucY() || checkSongSongTrucX()) return 0;
+		if(checkDoiXungTrucX() || checkSongSongTrucY()) return 90;
 		Diem o = new Diem(0,0);
 		Diem a = new Diem(this.d1.giaTriX(),0);
 		Diem b = new Diem(0,this.d2.giaTriY());
@@ -125,7 +124,7 @@ public class DoanThang {
 //======================================================================//		
 	public static void main(String[] args) {
 //		Diem a= new Diem(5,-4);
-//		Diem b= new Diem(5,4);
+//		Diem b= new Diem(5,3);
 //		DoanThang d1 = new DoanThang(a,b);
 //		System.out.println(d1.tinhGocTrucHoanh());
 //		d1.hienThi();
