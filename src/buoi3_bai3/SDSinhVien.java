@@ -9,25 +9,28 @@ public class SDSinhVien {
 	public static void main(String[] args) {
 		SinhVien a= new SinhVien();
 		a.nhapSV();
+		a.nhapDiemHocPhan();
 		a.dangKyHocPhan();
 		
 		Scanner scanner = new Scanner(System.in);
 		List<SinhVien> dsSv = new ArrayList<SinhVien>();
 		
-		System.out.print("Nhap so luong:");
+		System.out.print("Nhap so sinh vien:");
 		int n = scanner.nextInt();
 		
 		for(int i=0; i<n; i++) {
 			SinhVien sv = new SinhVien();
+			System.out.println("Nhap sinh vien thu "+(i+1));
 			sv.nhapSV();
 			sv.nhapDiemHocPhan();
 			dsSv.add(sv);
+			System.out.println();
 		}
 		
-		System.out.println("Sinh vien canh bao hoc vu");
+		System.out.println("Sinh vien canh bao hoc vu: ");
 		for (SinhVien sinhVien : dsSv) {
 			if(sinhVien.diemTB4()<2.5) {
-				sinhVien.toString();
+				System.out.println(sinhVien.toString());
 			}
 		}
 		
@@ -40,8 +43,11 @@ public class SDSinhVien {
 				highestSv=sinhVien;
 			}
 		}
-		highestSv.toString();
+		System.out.println(highestSv.toString());
 		
-		
+		Collections.sort(dsSv);
+		for (SinhVien sinhVien : dsSv) {
+			System.out.println(sinhVien.toString());
+		}
 	}
 }
