@@ -27,11 +27,14 @@ public class PhanSo {
 	}
 //======================================================================//
 	public void inPhanSo() {
-		if(tu==0) System.out.println(tu);
-		else if(mau==1) System.out.println(tu);
-		else if(mau==-1) System.out.println(-tu);
-		else if(mau<0) System.out.println(-tu+"/"+mau);
-		else System.out.println(tu+"/"+mau);
+		PhanSo ps = new PhanSo(this.tu,this.mau);
+		ps=ps.toiGian();
+		if (ps.mau==0) System.out.println("Khong ton tai");
+		else if(ps.tu==0) System.out.println(ps.tu);
+		else if(ps.mau==1) System.out.println(ps.tu);
+		else if(ps.mau==-1) System.out.println(-ps.tu);
+		else if(ps.mau<0) System.out.println(-ps.tu+"/"+ps.mau);
+		else System.out.println(ps.tu+"/"+ps.mau);
 	}
 //======================================================================//
 	public PhanSo giaTriNghichDao() {
@@ -63,25 +66,27 @@ public class PhanSo {
 	public int bcnn(int a, int b) {
 		int max = Math.max(a, b);
 		int maxvalue=a*b;
-		int value=0;
 		for(int i=max; i<=maxvalue; i++) {
 			if(i%a==0 && i%b==0) {
-				value=i; 
-				break;
+				return i; 
 			}
 		}
-		return value;
+		return maxvalue;
 	}
 //======================================================================//
 	public int ucln(int a, int b) {
-		int min = Math.max(a, b);
-		int value=0;
-		for(int i=min; i>1; i--) {
-			if(a%i==0 && b%i==0) {
-				value=i; 
-			}
-		}
-		return value;
+		if (a==0) return b;
+		else if(b==0) return a;
+		else if(a==0 || b==0) return 0;
+		
+		while (a!=b){
+			if (a>b){
+	            a-=b;
+	        }else{
+	            b-=a;
+	        }
+	    }
+	    return a;
 	}
 //======================================================================//
 	public PhanSo cong(PhanSo a) {
@@ -117,5 +122,16 @@ public class PhanSo {
 		PhanSo newPhanSo = new PhanSo(tu,mau);
 		return newPhanSo;
 	}
-	
+//======================================================================//
+	public PhanSo toiGian() {
+		PhanSo ps= new PhanSo(this.tu,this.mau);
+		tu = ps.tu;
+		mau= ps.mau;
+		int ucln= ps.ucln(tu, mau);
+		if(ucln>1) {
+			ps.tu/=ucln;
+			ps.mau/=ucln;
+		}
+		return ps;
+	}
 }
