@@ -35,12 +35,12 @@ public class Date {
 		scanner.close();
 	}
 //======================================================================//
-	public int lastMonth(int thang, int nam) {
-		if (thang==1 || thang==3 || thang==5 || thang==7 || thang==8 || thang==10 || thang==12){
+	public int lastMonth() {
+		if (this.thang==1 || this.thang==3 || this.thang==5 || this.thang==7 || this.thang==8 || this.thang==10 || this.thang==12){
 			return 31;
 		}
-		else if (thang==2) {
-			if((nam % 4 !=0 || nam % 100 ==0) && nam % 400 !=0) {
+		else if (this.thang==2) {
+			if((this.nam % 4 !=0 || this.nam % 100 ==0) && this.nam % 400 !=0) {
 				return 28;
 			}
 			else return 29;
@@ -49,87 +49,55 @@ public class Date {
 	}
 //======================================================================//
 	public boolean hopLe() {
-		if(this.ngay>lastMonth(this.thang,this.nam) || this.ngay < 1) 
-			return false; else return true;
-	}
-//===============================Overload================================//
-	public boolean hopLe(int thang, int nam) {
-		if(ngay>lastMonth(thang,nam) || ngay < 1) 
-			return false; else return true;
+		if(this.ngay>lastMonth() || this.ngay < 1) 
+			return false; 
+		else return true;
 	}
 //======================================================================//
 	public Date ngayHomSau() {
-		Date tomorrow;
-		int d=this.ngay,m=this.thang,y=this.nam;
-		
-		if(hopLe()) {
-			if(d==lastMonth(m,y)) {
-				if(m==12) {
-					d=1;
-					m=1;
-					y+=1;
+		Date tomorrow = new Date(this.ngay,this.thang,this.nam);
+		if(tomorrow.hopLe()) {
+			if(tomorrow.ngay==lastMonth()) {
+				if(tomorrow.thang==12) {
+					tomorrow.ngay=1;
+					tomorrow.thang=1;
+					tomorrow.nam+=1;
 				} else {
-					d=1;
-					m+=1;
-				  //y=this.nam;
+					tomorrow.ngay=1;
+					tomorrow.thang+=1;
 				}
 			} else {
-				d+=1;
-			  //m=this.thang;
-			  //y=this.nam;
+				tomorrow.ngay+=1;
 			}			
 		}
-		return tomorrow = new Date(d, m, y);
-	}
-//===============================Overload================================//
-	public Date ngayHomSau(int ngay, int thang, int nam) {
-		Date tomorrow;
-		int d=ngay,m=thang,y=nam;
-		
-		if(hopLe(m,y)) {
-			if(d==lastMonth(m,y)) {
-				if(m==12) {
-					d=1;
-					m=1;
-					y+=1;
-				} else {
-					d=1;
-					m+=1;
-					//y=this.nam;
-				}
-			} else {
-				d+=1;
-				//m=this.thang;
-				//y=this.nam;
-			}			
-		}
-		return tomorrow = new Date(d, m, y);
+		return tomorrow;
 	}
 //======================================================================//	
 	public Date congNgay(int n) {
-		Date newDate;
-		int d=this.ngay, m=this.thang, y= this.nam;
+		Date newDate= new Date(this.ngay,this.thang,this.nam);
 		do {
-			n-=(lastMonth(m,y)-d);
+			n-=(newDate.lastMonth()-newDate.ngay);
 			if(n>0) {
-				newDate = ngayHomSau(lastMonth(m,y),m,y);
+				newDate.ngay= newDate.lastMonth();
+				newDate = newDate.ngayHomSau();
 				n-=1;
-				d=newDate.ngay;
-				m=newDate.thang;
-				y=newDate.nam;
 			}
 			else {
-				n+=lastMonth(m,y)-d;
-				newDate = new Date(d+n,m,y);
+				n+=newDate.lastMonth()-newDate.ngay;
+				newDate.ngay+= n;
 				break;
 			}
 		}while(n>0);
-		return newDate;
+		if(newDate.hopLe()) return newDate; 
+		else return newDate= new Date(this.ngay,this.thang,this.nam);
 	}
 //======================================================================//
 	public static void main(String[] args) {
-		Date d = new Date(15, 6, 2001);
-		d=d.congNgay(2);
-		System.out.println(d.toString());
+//		Date d = new Date(28, 2, 2001);
+//		System.out.println(d.toString());
+//		d=d.ngayHomSau();
+//		System.out.println(d.toString());
+//		d=d.congNgay(20);
+//		System.out.println(d.toString());
 	}	
 }
