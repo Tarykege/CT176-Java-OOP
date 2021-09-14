@@ -3,23 +3,24 @@ package buoi2_bai1;
 import java.util.Scanner;
 
 public class Diem {
-	int x;
-	int y;
+	private int x;
+	private int y;
+	
+//======================================================================//
 	public Diem(){
 		this.x=0;
 		this.y=0;
 	}
-	
 	public Diem(int x, int y){
 		this.x = x;
 		this.y = y;
 	}
-	
-	public int giaTriX() {
+//======================================================================//
+	public int getX() {
 		return this.x;
 	}
 	
-	public int giaTriY() {
+	public int getY() {
 		return this.y;
 	}
 	
@@ -51,13 +52,11 @@ public class Diem {
 	}
 //======================================================================//
 	public float khoangCach() {
-		float k= (float) Math.sqrt(this.x*this.x+this.y*this.y);
-		return k;
+		return (float) Math.sqrt(this.x*this.x+this.y*this.y);
 	}
-//======================================================================//
+//===============================Overload===============================//
 	public float khoangCach(Diem d){
-		float k= (float) Math.sqrt((d.x-this.x)*(d.x-this.x)+(d.y-this.y)*(d.y-this.y));
-		return k;
+		return (float) Math.sqrt((d.getX()-this.x)*(d.getX()-this.x)+(d.getY()-this.y)*(d.getY()-this.y));
 	}
 //======================================================================//
 	public static void main(String[] args) {
