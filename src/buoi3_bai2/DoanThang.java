@@ -5,7 +5,9 @@ import java.util.Scanner;
 import buoi2_bai1.Diem;
 
 public class DoanThang {
-	Diem d1,d2;
+	private Diem d1;
+	private Diem d2;
+	
 	public DoanThang() {
 		this.d1= new Diem();
 		this.d2= new Diem();
@@ -56,7 +58,7 @@ public class DoanThang {
 	}
 //======================================================================//
 	public boolean checkTrungDiem() {
-		if(this.d1.giaTriX()==this.d2.giaTriX() && this.d1.giaTriY()==this.d2.giaTriY() ) {
+		if(this.d1.getX()==this.d2.getX() && this.d1.getY()==this.d2.getY() ) {
 			return true;
 		}
 		else return false;
@@ -64,16 +66,16 @@ public class DoanThang {
 //======================================================================//
 	public boolean checkDoiXung() {
 		if(checkTrungDiem()) return false; 
-		Diem absA = new Diem(Math.abs(this.d1.giaTriX()),Math.abs(this.d1.giaTriY()));
-		Diem absB = new Diem(Math.abs(this.d2.giaTriX()),Math.abs(this.d2.giaTriY()));
-		if(absA.giaTriX()==absB.giaTriX() && absA.giaTriY()==absB.giaTriY()) {
+		Diem absA = new Diem(Math.abs(this.d1.getX()),Math.abs(this.d1.getY()));
+		Diem absB = new Diem(Math.abs(this.d2.getX()),Math.abs(this.d2.getY()));
+		if(absA.getX()==absB.getX() && absA.getY()==absB.getY()) {
 			return true;
 		} 
 		else return false;
 	}
 //======================================================================//
 	public boolean checkDoiXungTrucX() {
-		if(checkDoiXung()==true && this.d1.giaTriX()*this.d2.giaTriX()>0 ) {
+		if(checkDoiXung()==true && this.d1.getX()*this.d2.getX()>0 ) {
 			return true;
 		}
 		else return false;
@@ -81,7 +83,7 @@ public class DoanThang {
 //======================================================================//	
 	public boolean checkDoiXungTrucY() {
 		
-		if(checkDoiXung()==true && this.d1.giaTriX()*this.d2.giaTriX()<0 ) {
+		if(checkDoiXung()==true && this.d1.getX()*this.d2.getX()<0 ) {
 			return true;
 		}
 		else return false;
@@ -89,13 +91,13 @@ public class DoanThang {
 //======================================================================//		
 	public boolean checkSongSongTrucY() {
 		if(checkDoiXung()) return false;
-		if(this.d1.giaTriX()==this.d2.giaTriX()) return true;
+		if(this.d1.getX()==this.d2.getX()) return true;
 		else return false;
 	}
 //======================================================================//	
 	public boolean checkSongSongTrucX() {
 		if(checkDoiXung()) return false;
-		if(this.d1.giaTriY()==this.d2.giaTriY()) return true;
+		if(this.d1.getY()==this.d2.getY()) return true;
 		else return false;
 	}
 //======================================================================//
@@ -103,12 +105,12 @@ public class DoanThang {
 		if(checkTrungDiem() || checkDoiXungTrucY() || checkSongSongTrucX()) return 0;
 		if(checkDoiXungTrucX() || checkSongSongTrucY()) return 90;
 		Diem o = new Diem(0,0);
-		Diem a = new Diem(this.d1.giaTriX(),0);
-		Diem b = new Diem(0,this.d2.giaTriY());
+		Diem a = new Diem(this.d1.getX(),0);
+		Diem b = new Diem(0,this.d2.getY());
 		
-		if(d2.giaTriY()==0 || d1.giaTriX()==0){
-			a = new Diem(this.d2.giaTriX(),0);
-			b = new Diem(0,this.d1.giaTriY());
+		if(d2.getY()==0 || d1.getX()==0){
+			a = new Diem(this.d2.getX(),0);
+			b = new Diem(0,this.d1.getY());
 		}
 		
 		float oa= o.khoangCach(a);
@@ -118,7 +120,7 @@ public class DoanThang {
 		float tiLe= ob/oa;
 		float radian=(float) Math.atan(tiLe)  ;//radian= arctan(tiLe)
 		float degrees=(float) Math.toDegrees(radian) ; //degress= radian*(180/pi)
-		if(a.giaTriX()*b.giaTriY()>0) return 180-degrees;
+		if(a.getX()*b.getY()>0) return 180-degrees;
 		else return degrees;
 	}
 //======================================================================//		
