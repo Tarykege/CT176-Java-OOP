@@ -11,6 +11,7 @@ public class SinhVien implements Comparable<SinhVien>{
 	int soHocPhan;
 	String[] dsHocPhan;
 	String[] diemHocPhan;
+
 //======================================================================//
 	public SinhVien() {
 		this.diemHocPhan=new String[100];
@@ -23,7 +24,7 @@ public class SinhVien implements Comparable<SinhVien>{
 			string=null;
 		}
 	}
-//======================================================================//	
+	
 	public SinhVien(String mssv, String hoTen, Date ngaySinh, int soHocPhan, String[] dsHocPhan, String[] diemHocPhan) {
 		this.mssv= mssv;
 		this.hoTen=hoTen;
@@ -33,6 +34,14 @@ public class SinhVien implements Comparable<SinhVien>{
 		this.diemHocPhan= diemHocPhan;
 	}
 //======================================================================//		
+	public String getMssv() {
+		return mssv;
+	}
+	
+	public String getHoTen() {
+		return hoTen;
+	}
+	
 	public String getTen() {
 		String s = this.hoTen;
 		int i;
@@ -42,6 +51,46 @@ public class SinhVien implements Comparable<SinhVien>{
 			}
 		}
 		return s.substring(i+1);
+	}
+	
+	public Date getNgaySinh() {
+		return ngaySinh;
+	}
+	
+	public int getSoHocPhan() {
+		return soHocPhan;
+	}
+	
+	public String[] getDsHocPhan() {
+		return dsHocPhan;
+	}
+	
+	public String[] getDiemHocPhan() {
+		return diemHocPhan;
+	}
+//======================================================================//
+	public void setMssv(String mssv) {
+		this.mssv = mssv;
+	}
+	
+	public void setHoTen(String hoTen) {
+		this.hoTen = hoTen;
+	}
+	
+	public void setNgaySinh(Date ngaySinh) {
+		this.ngaySinh = ngaySinh;
+	}
+	
+	public void setSoHocPhan(int soHocPhan) {
+		this.soHocPhan = soHocPhan;
+	}
+	
+	public void setDsHocPhan(String[] dsHocPhan) {
+		this.dsHocPhan = dsHocPhan;
+	}
+	
+	public void setDiemHocPhan(String[] diemHocPhan) {
+		this.diemHocPhan = diemHocPhan;
 	}
 //======================================================================//	
 	@Override
