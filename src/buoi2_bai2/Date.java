@@ -9,9 +9,9 @@ public class Date {
 	
 //======================================================================//
 	public Date() {
-		this.ngay=0;
-		this.thang=0;
-		this.nam=0;
+		this.ngay=11;
+		this.thang=5;
+		this.nam=2002;
 	}
 	public Date(int ngay, int thang, int nam) {
 		this.ngay = ngay;
