@@ -46,40 +46,46 @@ public class Date2 {
 //======================================================================//
 	public void input() {
 		Scanner scanner = new Scanner(System.in);
-		boolean check=false;
-		while(check==false) {
+		do{
 			System.out.println("Ngay: ");
 			this.ngay= scanner.nextInt();
 			System.out.println("Thang: ");
 			this.thang= scanner.nextInt();
 			System.out.println("Nam: ");
 			this.nam= scanner.nextInt();
-			if(hopLe()==true) check=true;
+			if(!hopLe()) System.out.println("Please enter again");;
 		}
-		scanner.close();
+		while(!hopLe());
 	}
 //======================================================================//
 	public boolean hopLe() {
-			return false; 
+			int[] max = {0,31,28,31,30,31,30,31,31,30,31,30,31};
+			if(this.nam%4==0) max[thang] = 29;
+			if(ngay>0 && thang>0 && nam>0 && thang<13 && ngay <=max[thang]) {
+				return true;
+			}
+			return false;
 	}
 //======================================================================//
 	public Date2 ngayHomSau() {
 		Date2 tomorrow = new Date2(this.ngay,this.thang,this.nam);
-		
+		tomorrow.ngay++;
+		if(!tomorrow.hopLe()) {
+			tomorrow.ngay=1;
+			tomorrow.thang++;
+			if(!tomorrow.hopLe()) {
+				tomorrow.thang=1;
+				tomorrow.nam++;
+			}
+		}
 		return tomorrow;
 	}
 //======================================================================//	
 	public Date2 congNgay(int n) {
 		Date2 newDate= new Date2(this.ngay,this.thang,this.nam);
+		for(int i=0; i<n; i++) {
+			newDate=newDate.ngayHomSau();
+		}
 		return newDate;
 	}
-//======================================================================//
-	public static void main(String[] args) {
-//		Date d = new Date(28, 2, 2001);
-//		System.out.println(d.toString());
-//		d=d.ngayHomSau();
-//		System.out.println(d.toString());
-//		d=d.congNgay(20);
-//		System.out.println(d.toString());
-	}	
 }
