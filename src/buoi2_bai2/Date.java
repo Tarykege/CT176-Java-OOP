@@ -46,17 +46,16 @@ public class Date {
 //======================================================================//
 	public void input() {
 		Scanner scanner = new Scanner(System.in);
-		boolean check=false;
-		while(check==false) {
+		do {
 			System.out.println("Ngay: ");
 			this.ngay= scanner.nextInt();
 			System.out.println("Thang: ");
 			this.thang= scanner.nextInt();
 			System.out.println("Nam: ");
 			this.nam= scanner.nextInt();
-			if(hopLe()==true) check=true;
+			if(!hopLe()) System.out.println("Please enter again");
 		}
-		scanner.close();
+		while(!hopLe());
 	}
 //======================================================================//
 	public int lastMonth() {
