@@ -93,8 +93,7 @@ public class PhanSo {
 		int mauChung=bcnn(this.mau,a.mau);
 		int mau=mauChung;
 		int tu=(this.tu*(mauChung/this.mau))+ (a.tu*(mauChung/a.mau));
-		//tu = tu/ucln(tu,mau);
-		//mau=mau/ucln(tu,mau);
+		
 		PhanSo newPhanSo = new PhanSo(tu,mau);
 		return newPhanSo;
 	}
@@ -103,8 +102,7 @@ public class PhanSo {
 		int mauChung=bcnn(this.mau,a.mau);
 		int mau=mauChung;
 		int tu=(this.tu*(mauChung/this.mau))-(a.tu*(mauChung/a.mau));
-		//tu = tu/ucln(tu,mau);
-		//mau=mau/ucln(tu,mau);
+
 		PhanSo newPhanSo = new PhanSo(tu,mau);
 		return newPhanSo;
 	}
@@ -119,6 +117,7 @@ public class PhanSo {
 	public PhanSo chia(PhanSo a) {
 		int mau=this.mau*a.tu;
 		int tu=this.tu*a.mau;
+		
 		PhanSo newPhanSo = new PhanSo(tu,mau);
 		return newPhanSo;
 	}
