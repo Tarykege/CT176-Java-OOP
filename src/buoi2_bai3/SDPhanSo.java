@@ -43,8 +43,8 @@ public class SDPhanSo {
 			c[i]=ps;
 		}
 
-		double max= Double.MIN_VALUE;
-		for (int i=0; i<n; i++) {
+		double max= c[0].giaTriThuc();
+		for (int i=1; i<n; i++) {
 			if(max<c[i].giaTriThuc()) 
 				max=c[i].giaTriThuc();
 		}

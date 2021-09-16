@@ -15,21 +15,19 @@ public class PhanSo {
 //======================================================================//
 	public void nhapPhanSo() {
 		Scanner scanner = new Scanner(System.in);
+		do{
 		System.out.print("Nhap tu:");
 		this.tu = scanner.nextInt();
 		System.out.print("Nhap mau:");
 		this.mau = scanner.nextInt();
-		while(this.mau==0) {
-			System.out.print("Nhap lai mau:");
-			this.mau = scanner.nextInt();
-		}
-		//scanner.close();
+			if(this.mau==0 )System.out.println("Please enter again");
+		}while(this.mau==0);
 	}
 //======================================================================//
 	public void inPhanSo() {
 		PhanSo ps = new PhanSo(this.tu,this.mau);
 		ps=ps.toiGian();
-		if (ps.mau==0) System.out.println("Khong ton tai");
+		if(ps.mau==0) System.out.println(ps.tu+"/"+ps.mau+" (invalid fraction)");
 		else if(ps.tu==0) System.out.println(ps.tu);
 		else if(ps.mau==1) System.out.println(ps.tu);
 		else if(ps.mau==-1) System.out.println(-ps.tu);
@@ -38,12 +36,7 @@ public class PhanSo {
 	}
 //======================================================================//
 	public PhanSo giaTriNghichDao() {
-		int tu = this.tu;
-		int mau= this.mau;
-		int temp =tu;
-		tu=mau;
-		mau=temp;
-		PhanSo newPhanSo = new PhanSo(tu,mau);
+		PhanSo newPhanSo = new PhanSo(this.mau,this.tu);
 		return newPhanSo;
 	}
 //======================================================================//
@@ -54,7 +47,7 @@ public class PhanSo {
 	}
 //======================================================================//
 	public double giaTriThuc() {
-		double t = (double) this.tu/this.mau;
+		double t = this.tu/this.mau;
 		return t;
 	}
 //======================================================================//
@@ -64,6 +57,9 @@ public class PhanSo {
 	}
 //======================================================================//
 	public int bcnn(int a, int b) {
+		a=Math.abs(a);
+		b=Math.abs(b);
+		
 		int max = Math.max(a, b);
 		int maxvalue=a*b;
 		for(int i=max; i<=maxvalue; i++) {
@@ -75,6 +71,9 @@ public class PhanSo {
 	}
 //======================================================================//
 	public int ucln(int a, int b) {
+		a=Math.abs(a);
+		b=Math.abs(b);
+		
 		if (a==0) return b;
 		else if(b==0) return a;
 		else if(a==0 || b==0) return 0;
