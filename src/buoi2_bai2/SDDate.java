@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class SDDate {
 	public static void main(String[] args) {
 		Date d = new Date();
-		d.input();
+		d.nhapNgay();
 		System.out.println(d.toString());
 		
 		d=d.ngayHomSau();

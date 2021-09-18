@@ -16,19 +16,19 @@ public class Diem {
 		this.y = y;
 	}
 //======================================================================//
-	public int getX() {
+	public int layX() {
 		return this.x;
 	}
 	
-	public int getY() {
+	public int layY() {
 		return this.y;
 	}
 	
-	public void setX(int x) {
+	public void datX(int x) {
 		this.x= x;
 	}
 	
-	public void setY(int y) {
+	public void datY(int y) {
 		this.y= y;
 	}
 //======================================================================//
@@ -41,7 +41,7 @@ public class Diem {
 		scanner.close();
 	}
 //======================================================================//
-	public void hienThi() {
+	public void inDiem() {
       //System.out.printf("(%d,%d)\n",this.x,this.y);
 		System.out.println("("+this.x+","+this.y+")");
 	}
@@ -56,11 +56,7 @@ public class Diem {
 	}
 //===============================Overload===============================//
 	public float khoangCach(Diem d){
-		return (float) Math.sqrt((d.getX()-this.x)*(d.getX()-this.x)+(d.getY()-this.y)*(d.getY()-this.y));
-	}
-//======================================================================//
-	public static void main(String[] args) {
-		
+		return (float) Math.sqrt((d.layX()-this.x)*(d.layX()-this.x)+(d.layY()-this.y)*(d.layY()-this.y));
 	}
 }
 

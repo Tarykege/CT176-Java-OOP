@@ -44,16 +44,16 @@ public class Date {
 		return this.ngay+"/"+this.thang+"/"+this.nam;
 	}
 //======================================================================//
-	public void input() {
+	public void nhapNgay() {
 		Scanner scanner = new Scanner(System.in);
 		do {
-			System.out.println("Ngay: ");
+			System.out.println("Nhap ngay: ");
 			this.ngay= scanner.nextInt();
-			System.out.println("Thang: ");
+			System.out.println("Nhap thang: ");
 			this.thang= scanner.nextInt();
-			System.out.println("Nam: ");
+			System.out.println("Nhap nam: ");
 			this.nam= scanner.nextInt();
-			if(!hopLe()) System.out.println("Please enter again");
+			if(!hopLe()) System.out.println("Hay nhap lai");
 		}
 		while(!hopLe());
 	}
@@ -115,12 +115,5 @@ public class Date {
 		else return newDate= new Date(this.ngay,this.thang,this.nam);
 	}
 //======================================================================//
-	public static void main(String[] args) {
-//		Date d = new Date(28, 2, 2001);
-//		System.out.println(d.toString());
-//		d=d.ngayHomSau();
-//		System.out.println(d.toString());
-//		d=d.congNgay(20);
-//		System.out.println(d.toString());
-	}	
+
 }

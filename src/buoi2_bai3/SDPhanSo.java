@@ -11,12 +11,12 @@ public class SDPhanSo {
 
 		PhanSo x= new PhanSo();
 		PhanSo y= new PhanSo();
-		System.out.println("Enter x");
+		System.out.println("Nhap x");
 		x.nhapPhanSo();
-		System.out.println("Enter y");
+		System.out.println("Nhap y");
 		y.nhapPhanSo();
 
-		System.out.print("Inverse fraction of x: ");
+		System.out.print("Nghich dao cua x: ");
 		PhanSo daoX = x.giaTriNghichDao();
 		daoX.inPhanSo();
 
@@ -32,13 +32,13 @@ public class SDPhanSo {
 		z = x.chia(y);
 		z.inPhanSo();
 
-		System.out.print("Enter number fraction: ");
+		System.out.print("Nhap so luong phan so: ");
 		Scanner scanner = new Scanner(System.in);
 		int n= scanner.nextInt();
 		PhanSo[] c = new PhanSo[n];
 		for (int i=0; i<c.length; i++) {
 			PhanSo ps= new PhanSo();
-			System.out.println("Fraction "+(i+1));
+			System.out.println("Phan so thu "+(i+1));
 			ps.nhapPhanSo();
 			c[i]=ps;
 		}
@@ -51,13 +51,13 @@ public class SDPhanSo {
 		System.out.println("Max: "+Math.ceil(max*100)/100);
 
 		PhanSo sum = new PhanSo(0,1);
-		System.out.println("Sum all");
+		System.out.println("Tong phan so");
 		for(int i=0 ; i<n; i++) {
 			sum=sum.cong(c[i]);
 		}
 		sum.inPhanSo();
 
-		System.out.println("Ascending order");
+		System.out.println("Sap xep phan so");
 		for (int i=0; i<n-1; i++) {
 			for(int j=i+1; j<n; j++) {
 				if(c[i].giaTriThuc()>c[j].giaTriThuc()) {

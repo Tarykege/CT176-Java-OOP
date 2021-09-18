@@ -44,23 +44,23 @@ public class Date2 {
 		return this.ngay+"/"+this.thang+"/"+this.nam;
 	}
 //======================================================================//
-	public void input() {
+	public void nhapNgay() {
 		Scanner scanner = new Scanner(System.in);
 		do{
-			System.out.println("Ngay: ");
+			System.out.println("Nhap ngay: ");
 			this.ngay= scanner.nextInt();
-			System.out.println("Thang: ");
+			System.out.println("Nhap thang: ");
 			this.thang= scanner.nextInt();
-			System.out.println("Nam: ");
+			System.out.println("Nhap nam: ");
 			this.nam= scanner.nextInt();
-			if(!hopLe()) System.out.println("Please enter again");;
+			if(!hopLe()) System.out.println("Hay nhap lai");;
 		}
 		while(!hopLe());
 	}
 //======================================================================//
 	public boolean hopLe() {
 			int[] max = {0,31,28,31,30,31,30,31,31,30,31,30,31};
-			if(this.nam%4==0) max[thang] = 29;
+			if((this.nam%4==0 && this.nam %100!=0)|| this.nam%400==0 ) max[2] = 29;
 			if(ngay>0 && thang>0 && nam>0 && thang<13 && ngay <=max[thang]) {
 				return true;
 			}

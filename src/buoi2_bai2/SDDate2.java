@@ -5,9 +5,11 @@ import java.util.Scanner;
 public class SDDate2 {
 	public static void main(String[] args) {
 		Date2 d = new Date2();
-		d.input();
+		d.nhapNgay();
+		System.out.println("Hien thi ngay");
 		System.out.println(d.toString());
 		
+		System.out.println("Hien thi ngay hom sau");
 		d=d.ngayHomSau();
 		System.out.println(d.toString());
 		

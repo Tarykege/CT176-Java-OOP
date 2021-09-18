@@ -5,9 +5,13 @@ import java.util.Scanner;
 public class PhanSo {
 	int tu;
 	int mau;
+	
+	//======================================================================//
 	public PhanSo() {
+		this.tu=0;
+		this.mau=1;
 	}
-//======================================================================//
+
 	public PhanSo(int tu, int mau) {
 		this.tu=tu;
 		this.mau=mau;
@@ -20,14 +24,14 @@ public class PhanSo {
 		this.tu = scanner.nextInt();
 		System.out.print("Nhap mau:");
 		this.mau = scanner.nextInt();
-			if(this.mau==0 )System.out.println("Please enter again");
+			if(this.mau==0 )System.out.println("Hay nhap lai");
 		}while(this.mau==0);
 	}
 //======================================================================//
 	public void inPhanSo() {
 		PhanSo ps = new PhanSo(this.tu,this.mau);
 		ps=ps.toiGian();
-		if(ps.mau==0) System.out.println(ps.tu+"/"+ps.mau+" (invalid fraction)");
+		if(ps.mau==0) System.out.println(ps.tu+"/"+ps.mau+" (Phan so nay khong ton tai)");
 		else if(ps.tu==0) System.out.println(ps.tu);
 		else if(ps.mau==1) System.out.println(ps.tu);
 		else if(ps.mau==-1) System.out.println(-ps.tu);
@@ -47,12 +51,14 @@ public class PhanSo {
 	}
 //======================================================================//
 	public double giaTriThuc() {
-		double t = this.tu/this.mau;
+		double t = (double)this.tu/this.mau;
 		return t;
 	}
 //======================================================================//
-	public boolean lonHon(PhanSo a) {
-		if(this.tu/this.mau>a.tu/a.mau)	return true;
+	public boolean lonHon(PhanSo x) {
+		double a = (double) this.tu/this.mau;
+		double b= (double) x.tu/x.mau;
+		if(a>b) return true;
 		else return false;
 	}
 //======================================================================//
