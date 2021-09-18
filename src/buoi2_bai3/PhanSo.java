@@ -16,6 +16,11 @@ public class PhanSo {
 		this.tu=tu;
 		this.mau=mau;
 	}
+	
+	public PhanSo(PhanSo obj) {
+		this.tu=obj.tu;
+		this.mau=obj.mau;
+	}
 //======================================================================//
 	public void nhapPhanSo() {
 		Scanner scanner = new Scanner(System.in);

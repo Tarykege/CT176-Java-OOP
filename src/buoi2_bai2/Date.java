@@ -19,6 +19,11 @@ public class Date {
 		this.nam = nam;
 	}
 	
+	public Date(Date obj) {
+		this.ngay = obj.ngay;
+		this.thang = obj.thang;
+		this.nam = obj.nam;
+	}
 //======================================================================//
 	public int getNgay() {
 		return ngay;

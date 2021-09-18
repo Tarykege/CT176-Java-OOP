@@ -15,6 +15,11 @@ public class Diem {
 		this.x = x;
 		this.y = y;
 	}
+	
+	public Diem(Diem obj) {
+		this.x= obj.x;
+		this.y= obj.y;
+	}
 //======================================================================//
 	public int layX() {
 		return this.x;
