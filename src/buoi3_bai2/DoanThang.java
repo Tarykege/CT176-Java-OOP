@@ -107,4 +107,4 @@ public class DoanThang {
 //		System.out.println(d1.tinhGocTrucHoanh());
 //		d1.inDoanThang();
 //	}
-//}
+}
