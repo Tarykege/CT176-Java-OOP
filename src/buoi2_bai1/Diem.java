@@ -43,7 +43,6 @@ public class Diem {
 		this.x=scanner.nextInt();
 		System.out.print("Nhap toa do y: ");
 		this.y=scanner.nextInt();
-		scanner.close();
 	}
 //======================================================================//
 	public void inDiem() {
