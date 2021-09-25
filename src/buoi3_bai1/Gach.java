@@ -26,8 +26,8 @@ public class Gach {
 		this.giaBan=giaBan;
 	}
 	Gach(Gach obj){
-		this.maSo=obj.maSo;
-		this.mau=obj.mau;
+		this.maSo=new String(obj.maSo);
+		this.mau=new String(obj.mau);
 		this.soLuongVien=obj.soLuongVien;
 		this.chieuDai=obj.chieuDai;
 		this.chieuRong=obj.chieuRong;
