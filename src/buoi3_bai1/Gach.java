@@ -107,13 +107,13 @@ public class Gach {
 		return (int)Math.ceil(D*N/sMax); //dien tich D*N / dien tich 1 hop gach (m2)
 	}
 //======================================================================//
-	public static void main(String[] args) {
-		Gach gach= new Gach();
-		gach.nhapThongTin();
-		System.out.println(gach);
-		System.out.println(gach.giaBanLe());
-		System.out.println(gach.chieuDai*gach.chieuRong);
-		System.out.println(gach.dienTichNenToiDa()*Math.pow(10,-4));
-		System.out.println(gach.soLuongHop(4,5));
-	}
+//	public static void main(String[] args) {
+//		Gach gach= new Gach();
+//		gach.nhapThongTin();
+//		System.out.println(gach);
+//		System.out.println(gach.giaBanLe());
+//		System.out.println(gach.chieuDai*gach.chieuRong);
+//		System.out.println(gach.dienTichNenToiDa()*Math.pow(10,-4));
+//		System.out.println(gach.soLuongHop(4,5));
+//	}
 }
