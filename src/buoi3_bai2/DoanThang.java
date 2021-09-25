@@ -37,10 +37,12 @@ public class DoanThang {
 	}
 //======================================================================//		
 	public void inDoanThang() {
-		System.out.print("Diem 1: ");
 		this.d1.inDiem();
-		System.out.print("Diem 2: ");
 		this.d2.inDiem();
+	}
+	@Override
+	public String toString() {
+		return d1+", "+d2;
 	}
 //======================================================================//		
 	public DoanThang tinhTienDoanThang(int dx, int dy) {
@@ -105,6 +107,6 @@ public class DoanThang {
 //		Diem b= new Diem(2,1);
 //		DoanThang d1 = new DoanThang(a,b);
 //		System.out.println(d1.tinhGocTrucHoanh());
-//		d1.inDoanThang();
+//		System.out.println("doan thang d1: "+d1);
 //	}
 }
