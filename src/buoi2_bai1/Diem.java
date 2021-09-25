@@ -50,6 +50,11 @@ public class Diem {
 		System.out.println("("+this.x+","+this.y+")");
 	}
 //======================================================================//
+	@Override
+	public String toString() {
+		return "("+this.x+","+this.y+")";
+	}
+//======================================================================//
 	public void doiDiem(int dx, int dy) {
 		this.x+=dx;
 		this.y+=dy;
