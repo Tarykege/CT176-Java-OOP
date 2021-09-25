@@ -6,8 +6,10 @@ public class SDDate {
 	public static void main(String[] args) {
 		Date d = new Date();
 		d.nhapNgay();
+		System.out.println("Hien thi ngay");
 		System.out.println(d.toString());
 		
+		System.out.println("Hien thi ngay hom sau");
 		d=d.ngayHomSau();
 		System.out.println(d.toString());
 		

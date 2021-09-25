@@ -2,7 +2,7 @@ package buoi2_bai2;
 
 import java.util.Scanner;
 
-public class Date {
+public class Date{
 	private int ngay;
 	private int thang;
 	private int nam;
@@ -51,74 +51,46 @@ public class Date {
 //======================================================================//
 	public void nhapNgay() {
 		Scanner scanner = new Scanner(System.in);
-		do {
-			System.out.println("Nhap ngay: ");
+		do{
+			System.out.print("Nhap ngay: ");
 			this.ngay= scanner.nextInt();
-			System.out.println("Nhap thang: ");
+			System.out.print("Nhap thang: ");
 			this.thang= scanner.nextInt();
-			System.out.println("Nhap nam: ");
+			System.out.print("Nhap nam: ");
 			this.nam= scanner.nextInt();
-			if(!hopLe()) System.out.println("Hay nhap lai");
+			if(!hopLe()) System.out.println("Hay nhap lai");;
 		}
 		while(!hopLe());
 	}
 //======================================================================//
-	public int lastMonth() {
-		if (this.thang==1 || this.thang==3 || this.thang==5 || this.thang==7 || this.thang==8 || this.thang==10 || this.thang==12){
-			return 31;
-		}
-		else if (this.thang==2) {
-			if((this.nam % 4 !=0 || this.nam % 100 ==0) && this.nam % 400 !=0) {
-				return 28;
-			}
-			else return 29;
-			
-		} else return 30;
-	}
-//======================================================================//
 	public boolean hopLe() {
-		if(this.ngay>lastMonth() || this.ngay < 1) 
-			return false; 
-		else return true;
+			int[] max = {0,31,28,31,30,31,30,31,31,30,31,30,31};
+			if((this.nam%4==0 && this.nam %100!=0)|| this.nam%400==0 ) max[2] = 29;
+			if(ngay>0 && thang>0 && nam>0 && thang<13 && ngay <=max[thang]) {
+				return true;
+			}
+			return false;
 	}
 //======================================================================//
 	public Date ngayHomSau() {
 		Date tomorrow = new Date(this.ngay,this.thang,this.nam);
-		if(tomorrow.hopLe()) {
-			if(tomorrow.ngay==lastMonth()) {
-				if(tomorrow.thang==12) {
-					tomorrow.ngay=1;
-					tomorrow.thang=1;
-					tomorrow.nam+=1;
-				} else {
-					tomorrow.ngay=1;
-					tomorrow.thang+=1;
-				}
-			} else {
-				tomorrow.ngay+=1;
-			}			
+		tomorrow.ngay++;
+		if(!tomorrow.hopLe()) {
+			tomorrow.ngay=1;
+			tomorrow.thang++;
+			if(!tomorrow.hopLe()) {
+				tomorrow.thang=1;
+				tomorrow.nam++;
+			}
 		}
 		return tomorrow;
 	}
 //======================================================================//	
 	public Date congNgay(int n) {
 		Date newDate= new Date(this.ngay,this.thang,this.nam);
-		do {
-			n-=(newDate.lastMonth()-newDate.ngay);
-			if(n>0) {
-				newDate.ngay= newDate.lastMonth();
-				newDate = newDate.ngayHomSau();
-				n-=1;
-			}
-			else {
-				n+=newDate.lastMonth()-newDate.ngay;
-				newDate.ngay+= n;
-				break;
-			}
-		}while(n>0);
-		if(newDate.hopLe()) return newDate; 
-		else return newDate= new Date(this.ngay,this.thang,this.nam);
+		for(int i=0; i<n; i++) {
+			newDate=newDate.ngayHomSau();
+		}
+		return newDate;
 	}
-//======================================================================//
-
 }
