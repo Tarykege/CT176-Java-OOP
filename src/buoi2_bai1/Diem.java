@@ -47,7 +47,7 @@ public class Diem {
 //======================================================================//
 	public void inDiem() {
       //System.out.printf("(%d,%d)\n",this.x,this.y);
-		System.out.println("("+this.x+","+this.y+")");
+		System.out.print("("+this.x+","+this.y+")");
 	}
 //======================================================================//
 	@Override
