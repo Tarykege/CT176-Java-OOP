@@ -4,36 +4,47 @@ import java.util.Scanner;
 
 import buoi2_bai2.Date;
 
-public class SinhVien implements Comparable<SinhVien>{
+public class SinhVien{
 	String mssv;
 	String hoTen;
 	Date ngaySinh;
+	final static int MAX= 50;
 	int soHocPhan;
-	String[] dsHocPhan;
+	String[] tenHocPhan;
 	String[] diemHocPhan;
 
 //======================================================================//
 	public SinhVien() {
-		this.diemHocPhan=new String[100];
-		for (String string : diemHocPhan) {
-			string=null;
-		}
+		this.mssv= new String();
+		this.hoTen= new String();
+		this.ngaySinh= new Date();
+		this.soHocPhan= 0;
+		this.tenHocPhan= new String[MAX];
+		this.diemHocPhan= new String[MAX];
+	}
+	
+	public SinhVien(SinhVien sv) {
+		this.mssv= new String(sv.mssv);
+		this.hoTen= new String(sv.hoTen);
+		this.ngaySinh= new Date(sv.ngaySinh);
+		this.tenHocPhan= new String[sv.MAX];
+		this.diemHocPhan= new String[sv.MAX];
 		
-		this.dsHocPhan= new String[100];
-		for (String string : dsHocPhan) {
-			string=null;
+		for(int i=0; i<sv.soHocPhan; i++) {
+			this.tenHocPhan[i]= new String(sv.tenHocPhan[i]);
+			this.diemHocPhan[i]= new String(sv.diemHocPhan[i]);
 		}
 	}
 	
-	public SinhVien(String mssv, String hoTen, Date ngaySinh, int soHocPhan, String[] dsHocPhan, String[] diemHocPhan) {
+	public SinhVien(String mssv, String hoTen, Date ngaySinh) {
 		this.mssv= mssv;
-		this.hoTen=hoTen;
+		this.hoTen= hoTen;
 		this.ngaySinh= ngaySinh;
-		this.soHocPhan= soHocPhan;
-		this.dsHocPhan= dsHocPhan;
-		this.diemHocPhan= diemHocPhan;
+		this.soHocPhan= 0;
+		this.tenHocPhan= new String[MAX];
+		this.diemHocPhan= new String[MAX];
 	}
-//======================================================================//		
+//======================================================================//
 	public String getMssv() {
 		return mssv;
 	}
@@ -44,13 +55,7 @@ public class SinhVien implements Comparable<SinhVien>{
 	
 	public String getTen() {
 		String s = this.hoTen;
-		int i;
-		for( i=s.length()-1; i>=0; i-- ) {
-			if(s.charAt(i)==' ') {
-				break;
-			}
-		}
-		return s.substring(i+1);
+		return s.substring(s.lastIndexOf(' ')+1); 
 	}
 	
 	public Date getNgaySinh() {
@@ -61,8 +66,8 @@ public class SinhVien implements Comparable<SinhVien>{
 		return soHocPhan;
 	}
 	
-	public String[] getDsHocPhan() {
-		return dsHocPhan;
+	public String[] getTenHocPhan() {
+		return tenHocPhan;
 	}
 	
 	public String[] getDiemHocPhan() {
@@ -85,157 +90,105 @@ public class SinhVien implements Comparable<SinhVien>{
 		this.soHocPhan = soHocPhan;
 	}
 	
-	public void setDsHocPhan(String[] dsHocPhan) {
-		this.dsHocPhan = dsHocPhan;
+	public void setTenHocPhan(String[] dsHocPhan) {
+		this.tenHocPhan = dsHocPhan;
 	}
 	
 	public void setDiemHocPhan(String[] diemHocPhan) {
 		this.diemHocPhan = diemHocPhan;
 	}
-//======================================================================//	
-	@Override
-	public int compareTo(SinhVien sv) {
-		return this.getTen().compareTo(sv.getTen());
-	}
 //======================================================================//		
-	public void nhapSV() {
-		Scanner scanner = new Scanner(System.in);
-		System.out.print("Nhap ma so sinh vien: ");
-		String mssv = scanner.nextLine();
-		
-		System.out.print("Nhap ho ten: ");
-		String hoTen = scanner.nextLine();
-		
-		System.out.println("Nhap ngay sinh");
-		System.out.print("Ngay: ");
-		int ngay = scanner.nextInt();
-		
-		System.out.print("Thang: ");
-		int thang = scanner.nextInt();
-		
-		System.out.print("Nam: ");
-		int nam = scanner.nextInt();
-		Date date = new Date(ngay,thang,nam);
-		
-		System.out.print("Nhap so luong hoc phan da dang ky: ");
-		int n = scanner.nextInt();
-		scanner.nextLine();
-		
-		System.out.println("Nhap danh sach hoc phan");
-		String[] dsHocPhan = new String[100];
-		for (String string : dsHocPhan) {
-			string=null;
-		}
-		for (int i=0; i<n; i++) {
-			System.out.print("Hoc phan thu "+ (i+1)+": ");
-			dsHocPhan[i] = scanner.nextLine();
-		}
-			
-		this.mssv=mssv;
-		this.hoTen=hoTen;
-		this.ngaySinh=date;
-		this.soHocPhan=n;
-		this.dsHocPhan=dsHocPhan;
+	public void nhap() {
+			Scanner scanner = new Scanner(System.in);
+			System.out.print("Nhap mssv: ");
+			this.mssv= scanner.nextLine();
+			System.out.print("Nhap ho ten: ");
+			this.hoTen= scanner.nextLine();
+			System.out.println("Nhap ngay sinh");
+			this.ngaySinh.nhapNgay();
 	}
 //======================================================================//		
 	public void nhapDiemHocPhan() {
 		Scanner scanner = new Scanner(System.in);
-		int n= this.soHocPhan;
-		if(n==0) System.out.println("Hoc phan it hon 1");
-		else {
-			String[] diemHocPhan = new String[100];
-			
-			for(int i=0; i<n; i++) {
-				System.out.print("Diem hoc phan "+this.dsHocPhan[i]+": ");
-				diemHocPhan[i] = scanner.nextLine();
-			}
-			this.diemHocPhan=diemHocPhan;
+		do {
+			System.out.print("Nhap so luong mon hoc: ");
+			this.soHocPhan= scanner.nextInt();
+		}while(this.soHocPhan>MAX);
+		scanner.nextLine();
+		System.out.println("Nhap ten cac mon hoc");
+		for(int i=0; i<this.soHocPhan; i++) {
+			System.out.println("Nhap ten mon hoc thu "+(i+1));
+			//this.tenHocPhan[i]= new String(scanner.nextLine());
+			this.tenHocPhan[i]= scanner.nextLine();
+			System.out.println("Nhap diem mon hoc thu "+(i+1));
+			this.diemHocPhan[i]=scanner.nextLine();
 		}
 	}
 //======================================================================//	
 	@Override
 	public String toString() {
-		String s= "- "+this.mssv+"\n- "+this.hoTen+"\n- "+this.ngaySinh.toString()+"\n- "+"SLHP "+this.soHocPhan+"\n- "+"DsHocPhan{";
-		
+		String s= "Mssv: "+this.mssv+", HoTen: "+this.hoTen+", Ngay sinh: "+this.ngaySinh.toString()+" [";
 		for(int i=0; i<this.soHocPhan; i++) {
-			s+=" "+this.dsHocPhan[i]+": "+this.diemHocPhan[i]+" ";
-			if(i==this.soHocPhan-1) {
-				s+="}\n";
-			}
+			s+=this.tenHocPhan[i]+": "+this.diemHocPhan[i]+";";
 		}
+		s+="]";
 		return s;
 	}
 //======================================================================//		
 	public void dangKyHocPhan() {
-		Scanner scanner = new Scanner(System.in);
-		System.out.print("Nhap hoc phan can them: ");
-		String hocPhan = scanner.nextLine();
-		System.out.println("Nhap diem");
-		String diemHocPhan = scanner.nextLine();
-		this.diemHocPhan[this.soHocPhan]= diemHocPhan;
-		this.dsHocPhan[this.soHocPhan]=hocPhan;
-		this.soHocPhan++;
+		if(this.soHocPhan<MAX) {
+			Scanner scanner = new Scanner(System.in);
+			System.out.print("Nhap ten hoc phan de them: ");
+			this.tenHocPhan[this.soHocPhan] = new String(scanner.nextLine());
+			System.out.print("Nhap diem hoc phan: ");
+			this.diemHocPhan[this.soHocPhan] = new String(scanner.nextLine()); 
+			this.soHocPhan++;
+		}
+		else {
+			System.out.println("So luong hoc phan da day!");
+		}
 	}
 //======================================================================//		
 	public void xoaHocPhan() {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Nhap hoc phan can xoa: ");
-		String hocPhan = scanner.nextLine();
-		
-		for(int i=0; i<this.soHocPhan; i++) {
-				if(this.dsHocPhan[i].compareToIgnoreCase(hocPhan)==0) {
-					for(int j=i; j<this.soHocPhan; j++) {
-						this.dsHocPhan[j]=this.dsHocPhan[j+1];
-						this.diemHocPhan[j]=this.diemHocPhan[j+1];
-					}
-					this.dsHocPhan[this.soHocPhan-1]=null;
-					this.diemHocPhan[this.soHocPhan-1]=null;
-					this.soHocPhan--;
-					break;
+		System.out.println("Nhap ten hoc phan can xoa: ");
+		String tenHocPhan= scanner.nextLine();
+		for (int i=0; i<this.soHocPhan; i++) {
+			if(this.tenHocPhan[i].compareToIgnoreCase(tenHocPhan)==0) {
+				for(int j=i; j<this.soHocPhan-1; j++) {
+					this.tenHocPhan[j]=this.tenHocPhan[j+1];
+					this.diemHocPhan[j]= this.diemHocPhan[j+1];
 				}
+				this.soHocPhan--;
+				break;
 			}
-		
+		}
 	}
 //======================================================================//		
 	public float diemTB4() {
-		int s=0;
+		float d=0.0f;
 		for(int i=0; i<this.soHocPhan; i++) {
-			if(this.diemHocPhan[i].compareToIgnoreCase("A")==0) {
-				s+=4;
-			}
-			else if(this.diemHocPhan[i].compareToIgnoreCase("B+")==0) {
-				s+=3.5;
-			}
-			else if(this.diemHocPhan[i].compareToIgnoreCase("B")==0) {
-				s+=3;
-			}
-			else if(this.diemHocPhan[i].compareToIgnoreCase("C+")==0) {
-				s+=2.5;
-			}
-			else if(this.diemHocPhan[i].compareToIgnoreCase("C")==0) {
-				s+=2;
-			}
-			else if(this.diemHocPhan[i].compareToIgnoreCase("D+")==0) {
-				s+=1.5;
-			}
-			else if(this.diemHocPhan[i].compareToIgnoreCase("D")==0) {
-				s+=1;
-			}
-			else if(this.diemHocPhan[i].compareToIgnoreCase("F")==0) {
-				s+=0;
-			}			
+			if(this.diemHocPhan[i].equals("A")) d+=4;
+			else if(this.diemHocPhan[i].equals("B+")) d+=3.5;
+			else if(this.diemHocPhan[i].equals("B")) d+=3;
+			else if(this.diemHocPhan[i].equals("C+")) d+=2.5;
+			else if(this.diemHocPhan[i].equals("C")) d+=2f;
+			else if(this.diemHocPhan[i].equals("D+")) d+=1.5;
+			else if(this.diemHocPhan[i].equals("D")) d+=1; 
 		}
-		return (float) s/this.soHocPhan;
+		return d/this.soHocPhan;
 	}
 //======================================================================//	
-	public static void main(String[] args) {
+//	public static void main(String[] args) {
 //		SinhVien sv = new SinhVien();
-//		sv.nhapSV();
+//		sv.nhap();
 //		sv.nhapDiemHocPhan();
 //		System.out.println(sv.toString());
 //		sv.dangKyHocPhan();
 //		System.out.println(sv.toString());
 //		sv.xoaHocPhan();
 //		System.out.println(sv.toString());
-	}
+//		System.out.println("Diem trung binh: "+sv.diemTB4());
+//		
+//	}
 }
