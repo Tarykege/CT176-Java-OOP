@@ -44,6 +44,12 @@ public class DoanThang {
 	public String toString() {
 		return d1+", "+d2;
 	}
+	
+	public void in() {
+		d1.inDiem();
+		System.out.print(", ");
+		d2.inDiem();
+	}
 //======================================================================//		
 	public DoanThang tinhTienDoanThang(int dx, int dy) {
 		DoanThang doanThang= new DoanThang(d1,d2);
@@ -107,6 +113,6 @@ public class DoanThang {
 //		Diem b= new Diem(2,1);
 //		DoanThang d1 = new DoanThang(a,b);
 //		System.out.println(d1.tinhGocTrucHoanh());
-//		System.out.println("doan thang d1: "+d1);
+//		d1.in();
 //	}
 }
