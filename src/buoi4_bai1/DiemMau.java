@@ -42,7 +42,7 @@ public class DiemMau extends Diem {
 	public void in() {
 		System.out.print("Toa do ");
 		super.inDiem();
-		System.out.print("Mau: "+this.mau);
+		System.out.print(", mau: "+this.mau);
 	}
 	public String toString() {
 		return "Toa do "+super.toString()+", mau: "+this.mau; 
