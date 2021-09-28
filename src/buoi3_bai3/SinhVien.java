@@ -172,7 +172,7 @@ public class SinhVien{
 			else if(this.diemHocPhan[i].equals("B+")) d+=3.5;
 			else if(this.diemHocPhan[i].equals("B")) d+=3;
 			else if(this.diemHocPhan[i].equals("C+")) d+=2.5;
-			else if(this.diemHocPhan[i].equals("C")) d+=2f;
+			else if(this.diemHocPhan[i].equals("C")) d+=2;
 			else if(this.diemHocPhan[i].equals("D+")) d+=1.5;
 			else if(this.diemHocPhan[i].equals("D")) d+=1; 
 		}
