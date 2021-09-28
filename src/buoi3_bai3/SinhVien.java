@@ -19,14 +19,15 @@ public class SinhVien{
 		this.hoTen= new String();
 		this.ngaySinh= new Date();
 		this.soHocPhan= 0;
-		this.tenHocPhan= new String[MAX];
-		this.diemHocPhan= new String[MAX];
+		this.tenHocPhan= new String[SinhVien.MAX];
+		this.diemHocPhan= new String[SinhVien.MAX];
 	}
 	
 	public SinhVien(SinhVien sv) {
 		this.mssv= new String(sv.mssv);
 		this.hoTen= new String(sv.hoTen);
 		this.ngaySinh= new Date(sv.ngaySinh);
+		this.soHocPhan=sv.soHocPhan;
 		this.tenHocPhan= new String[SinhVien.MAX];
 		this.diemHocPhan= new String[SinhVien.MAX];
 		
@@ -36,13 +37,27 @@ public class SinhVien{
 		}
 	}
 	
+	public SinhVien(String mssv, String hoTen, Date ngaySinh, int soHocPhan, String[] tenHocPhan, String[] diemHocPhan) {
+		this.mssv= mssv;
+		this.hoTen= hoTen;
+		this.ngaySinh= ngaySinh;
+		this.soHocPhan= soHocPhan;
+		this.tenHocPhan= new String[SinhVien.MAX];
+		this.diemHocPhan= new String[SinhVien.MAX];
+		
+		for(int i=0; i<this.soHocPhan; i++) {
+			this.tenHocPhan[i]= new String(tenHocPhan[i]);
+			this.diemHocPhan[i]= new String(diemHocPhan[i]);
+		}
+	}
+	
 	public SinhVien(String mssv, String hoTen, Date ngaySinh) {
 		this.mssv= mssv;
 		this.hoTen= hoTen;
 		this.ngaySinh= ngaySinh;
 		this.soHocPhan= 0;
-		this.tenHocPhan= new String[MAX];
-		this.diemHocPhan= new String[MAX];
+		this.tenHocPhan= new String[SinhVien.MAX];
+		this.diemHocPhan= new String[SinhVien.MAX];
 	}
 //======================================================================//
 	public String getMssv() {
@@ -116,10 +131,10 @@ public class SinhVien{
 		}while(this.soHocPhan>MAX);
 		scanner.nextLine();
 		for(int i=0; i<this.soHocPhan; i++) {
-			System.out.println("Nhap ten mon hoc thu "+(i+1));
+			System.out.print("Nhap ten mon hoc thu "+(i+1)+": ");
 			//this.tenHocPhan[i]= new String(scanner.nextLine());
 			this.tenHocPhan[i]= scanner.nextLine();
-			System.out.println("Nhap diem mon hoc thu "+(i+1));
+			System.out.print("Nhap diem mon hoc thu "+(i+1)+": ");
 			this.diemHocPhan[i]=scanner.nextLine();
 		}
 	}
@@ -155,8 +170,8 @@ public class SinhVien{
 		for (int i=0; i<this.soHocPhan; i++) {
 			if(this.tenHocPhan[i].compareToIgnoreCase(tenHocPhan)==0) {
 				for(int j=i; j<this.soHocPhan-1; j++) {
-					this.tenHocPhan[j]=this.tenHocPhan[j+1];
-					this.diemHocPhan[j]= this.diemHocPhan[j+1];
+					this.tenHocPhan[j]=new String(this.tenHocPhan[j+1]);
+					this.diemHocPhan[j]= new String(this.diemHocPhan[j+1]);
 				}
 				this.soHocPhan--;
 				break;
@@ -188,6 +203,5 @@ public class SinhVien{
 //		sv.xoaHocPhan();
 //		System.out.println(sv.toString());
 //		System.out.println("Diem trung binh: "+sv.diemTB4());
-//		
 //	}
 }

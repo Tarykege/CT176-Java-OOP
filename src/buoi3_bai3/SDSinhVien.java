@@ -9,12 +9,13 @@ public class SDSinhVien {
 		a.nhap();
 		a.nhapDiemHocPhan();
 		a.dangKyHocPhan();
-		System.out.print("Nhap so luong sinh vien: ");
 		System.out.println(a);
-		
+				
+		System.out.print("Nhap so luong sinh vien: ");
 		int n= scanner.nextInt();
 		SinhVien sinhViens[]= new SinhVien[n];
 		for(int i=0; i<n; i++) {
+			System.out.println("Nhap sinh vien thu "+(i+1));
 			sinhViens[i]= new SinhVien();
 			sinhViens[i].nhap();
 			sinhViens[i].nhapDiemHocPhan();
@@ -23,7 +24,7 @@ public class SDSinhVien {
 		System.out.println("SV Canh bao hoc vu");
 		for(int i=0; i<n; i++) {
 			if(sinhViens[i].diemTB4()<2.5) {
-				System.out.println(sinhViens[i].toString());
+				System.out.println(sinhViens[i].toString()+" Diem TB: "+sinhViens[i].diemTB4());
 			}
 		}
 		
@@ -36,9 +37,9 @@ public class SDSinhVien {
 				sinhVienMax= new SinhVien(sinhViens[i]);
 			}
 		}
-		System.out.println(sinhVienMax.toString());
+		System.out.println(sinhVienMax.toString()+" Diem TB: "+sinhVienMax.diemTB4());
 		
-		System.out.println("Sort");
+		System.out.println("Sort by name");
 		for(int i=0; i<n; i++) {
 			for(int j=i+1; j<n; j++) {
 				if(sinhViens[i].getTen().compareTo(sinhViens[j].getTen())>0) {
@@ -49,7 +50,7 @@ public class SDSinhVien {
 			}
 		}
 		for (SinhVien sinhVien : sinhViens) {
-			System.out.println(sinhVien.toString());
+			System.out.println(sinhVien.toString()+" Diem TB: "+sinhVien.diemTB4());
 		}
 	}
 }

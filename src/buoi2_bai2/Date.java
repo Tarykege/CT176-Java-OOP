@@ -61,6 +61,7 @@ public class Date{
 			if(!hopLe()) System.out.println("Hay nhap lai");;
 		}
 		while(!hopLe());
+		scanner.nextLine();
 	}
 //======================================================================//
 	public boolean hopLe() {
