@@ -27,8 +27,8 @@ public class SinhVien{
 		this.mssv= new String(sv.mssv);
 		this.hoTen= new String(sv.hoTen);
 		this.ngaySinh= new Date(sv.ngaySinh);
-		this.tenHocPhan= new String[sv.MAX];
-		this.diemHocPhan= new String[sv.MAX];
+		this.tenHocPhan= new String[SinhVien.MAX];
+		this.diemHocPhan= new String[SinhVien.MAX];
 		
 		for(int i=0; i<sv.soHocPhan; i++) {
 			this.tenHocPhan[i]= new String(sv.tenHocPhan[i]);
@@ -139,9 +139,9 @@ public class SinhVien{
 		if(this.soHocPhan<MAX) {
 			Scanner scanner = new Scanner(System.in);
 			System.out.print("Nhap ten hoc phan de them: ");
-			this.tenHocPhan[this.soHocPhan] = new String(scanner.nextLine());
+			this.tenHocPhan[this.soHocPhan] = scanner.nextLine();
 			System.out.print("Nhap diem hoc phan: ");
-			this.diemHocPhan[this.soHocPhan] = new String(scanner.nextLine()); 
+			this.diemHocPhan[this.soHocPhan] = scanner.nextLine(); 
 			this.soHocPhan++;
 		}
 		else {
