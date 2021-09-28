@@ -115,7 +115,6 @@ public class SinhVien{
 			this.soHocPhan= scanner.nextInt();
 		}while(this.soHocPhan>MAX);
 		scanner.nextLine();
-		System.out.println("Nhap ten cac mon hoc");
 		for(int i=0; i<this.soHocPhan; i++) {
 			System.out.println("Nhap ten mon hoc thu "+(i+1));
 			//this.tenHocPhan[i]= new String(scanner.nextLine());
