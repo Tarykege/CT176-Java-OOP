@@ -141,11 +141,14 @@ public class SinhVien{
 //======================================================================//	
 	@Override
 	public String toString() {
-		String s= "Mssv: "+this.mssv+", HoTen: "+this.hoTen+", Ngay sinh: "+this.ngaySinh.toString()+" [";
-		for(int i=0; i<this.soHocPhan; i++) {
-			s+=this.tenHocPhan[i]+": "+this.diemHocPhan[i]+";";
+		String s= "Mssv: "+this.mssv+", HoTen: "+this.hoTen+", Ngay sinh: "+this.ngaySinh.toString();
+		if(this.soHocPhan!=0) {
+			s+=" [";
+			for(int i=0; i<this.soHocPhan; i++) {
+				s+=this.tenHocPhan[i]+": "+this.diemHocPhan[i]+";";
+			}
+			s+="]";			
 		}
-		s+="]";
 		return s;
 	}
 //======================================================================//		
