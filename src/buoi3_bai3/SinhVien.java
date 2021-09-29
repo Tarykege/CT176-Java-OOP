@@ -5,13 +5,13 @@ import java.util.Scanner;
 import buoi2_bai2.Date;
 
 public class SinhVien{
-	String mssv;
-	String hoTen;
-	Date ngaySinh;
+	private String mssv;
+	private String hoTen;
+	private Date ngaySinh;
 	final static int MAX= 50;
-	int soHocPhan;
-	String[] tenHocPhan;
-	String[] diemHocPhan;
+	private int soHocPhan;
+	private String[] tenHocPhan;
+	private String[] diemHocPhan;
 
 //======================================================================//
 	public SinhVien() {

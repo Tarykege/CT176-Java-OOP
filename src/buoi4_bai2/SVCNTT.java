@@ -6,9 +6,9 @@ import buoi2_bai2.Date;
 import buoi3_bai3.SinhVien;
 
 public class SVCNTT extends SinhVien {
-	String tk;
-	String mk;
-	String email;
+	private String tk;
+	private String mk;
+	private String email;
 
 //======================================================================//
 	public SVCNTT() {

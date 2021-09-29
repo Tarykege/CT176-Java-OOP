@@ -5,8 +5,9 @@ import java.util.Scanner;
 import buoi2_bai1.Diem;
 
 public class DiemMau extends Diem {
-	String mau;
+	private String mau;
 	
+//======================================================================//
 	public DiemMau() {
 		super();
 	}
@@ -32,6 +33,7 @@ public class DiemMau extends Diem {
 	public String getMau() {
 		return mau;
 	}
+//======================================================================//
 	public void nhap() {
 		Scanner scanner= new Scanner(System.in);
 		System.out.println("Nhap diem");
@@ -39,6 +41,7 @@ public class DiemMau extends Diem {
 		System.out.print("Nhap mau: ");
 		this.mau= scanner.nextLine();
 	}
+//======================================================================//
 	public void in() {
 		System.out.print("Toa do ");
 		super.inDiem();
