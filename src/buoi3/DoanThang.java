@@ -1,9 +1,8 @@
-package buoi3_bai2;
+package buoi3;
 
 import java.util.Scanner;
 
-import buoi2_bai1.Diem;
-
+import buoi2.Diem;
 public class DoanThang {
 	private Diem d1;
 	private Diem d2;

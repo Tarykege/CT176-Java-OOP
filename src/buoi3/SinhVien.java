@@ -1,8 +1,8 @@
-package buoi3_bai3;
+package buoi3;
 
 import java.util.Scanner;
 
-import buoi2_bai2.Date;
+import buoi2.Date;
 
 public class SinhVien{
 	private String mssv;
