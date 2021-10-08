@@ -30,9 +30,9 @@ public class SDGach {
 		}
 		System.out.println("gach chi phi lot thap nhat: {"+dsGach[p].toString()+"}");
 		
-		//gia ban le * so luong lot toi da 
+		//gia ban 1 hop * so luong hop lot toi da 
 		for(int i=0; i<n; i++) {
-			System.out.println("chi phi mua gach: "+dsGach[i].soLuongHop(20, 5)*dsGach[i].getGiaBan());
+			System.out.println("chi phi mua gach loai "+(i+1)+": "+dsGach[i].soLuongHop(20, 5)*dsGach[i].getGiaBan());
 		}
 	}
 }

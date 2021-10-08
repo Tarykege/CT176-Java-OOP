@@ -36,10 +36,6 @@ public class DoanThang {
 		this.d2.nhapDiem();
 	}
 //======================================================================//		
-	public void inDoanThang() {
-		this.d1.inDiem();
-		this.d2.inDiem();
-	}
 	@Override
 	public String toString() {
 		return d1+", "+d2;
@@ -49,6 +45,7 @@ public class DoanThang {
 		d1.inDiem();
 		System.out.print(", ");
 		d2.inDiem();
+		System.out.println();
 	}
 //======================================================================//		
 	public DoanThang tinhTienDoanThang(int dx, int dy) {

@@ -8,7 +8,7 @@ public class SinhVien{
 	private String mssv;
 	private String hoTen;
 	private Date ngaySinh;
-	final static int MAX= 50;
+	private final static int MAX= 50;
 	private int soHocPhan;
 	private String[] tenHocPhan;
 	private String[] diemHocPhan;
