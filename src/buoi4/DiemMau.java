@@ -1,8 +1,8 @@
-package buoi4_bai1;
+package buoi4;
 
 import java.util.Scanner;
 
-import buoi2_bai1.Diem;
+import buoi2.Diem;
 
 public class DiemMau extends Diem {
 	private String mau;

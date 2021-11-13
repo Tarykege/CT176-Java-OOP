@@ -1,6 +1,6 @@
-package buoi4_bai1;
+package buoi4;
 
-import buoi2_bai1.Diem;
+import buoi2.Diem;
 
 public class SDDiemMau {
 	public static void main(String[] args) {

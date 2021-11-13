@@ -1,9 +1,10 @@
-package buoi4_bai2;
+package buoi4;
 
 import java.util.Scanner;
 
-import buoi2_bai2.Date;
-import buoi3_bai3.SinhVien;
+
+import buoi2.Date;
+import buoi3.SinhVien;
 
 public class SVCNTT extends SinhVien {
 	private String tk;
